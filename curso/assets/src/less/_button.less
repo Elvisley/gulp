@@ -1,0 +1,48 @@
+.b-red{.cool-button(red);}
+.b-blue{.cool-button(blue);}
+.b-green{.cool-button(green);}
+.b-orange{.cool-button(orange);}
+.b-black{.cool-button(black);}
+.b-custom{.cool-button(#1E88C9);}
+
+.cool-button(@colour){
+    
+    //Optional font-family
+    font-family:Oswald;
+    
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    //These two stop flickering transitions in webkit
+    background-image: linear-gradient(bottom, @colour 25%, lighten(@colour,10%) 63%);
+    background-image: -o-linear-gradient(bottom, @colour 25%, lighten(@colour,10%) 63%);
+    background-image: -moz-linear-gradient(bottom, @colour 25%, lighten(@colour,10%) 63%);
+    background-image: -webkit-linear-gradient(bottom, @colour 25%, lighten(@colour,10%) 63%);
+    background-image: -ms-linear-gradient(bottom, @colour 25%, lighten(@colour,10%) 63%);
+    color:#fff;
+    width:120px;
+    text-align:center;
+    padding:10px 20px;
+    border-radius:5px;
+    border:2px solid darken(@colour,15%);
+    margin:50px auto;
+    box-shadow:0 10px 5px -5px rgba(0,0,0,0.5), 0 5px 25px fade(@colour,50%);
+    transition:all 100ms ease;
+
+    &:hover{
+      cursor:pointer;
+    }
+
+    &:active{
+      transform:translateY(2px);
+      box-shadow:0 8px 5px -5px rgba(0,0,0,0.65), 0 3px 25px fade(@colour,50%);
+      background-image: linear-gradient(bottom, darken(@colour,5%) 25%, lighten(@colour,5%) 63%);
+      background-image: -o-linear-gradient(bottom, darken(@colour,5%) 25%, lighten(@colour,5%) 63%);
+      background-image: -moz-linear-gradient(bottom, darken(@colour,5%) 25%, lighten(@colour,5%) 63%);
+      background-image: -webkit-linear-gradient(bottom, darken(@colour,5%) 25%, lighten(@colour,5%) 63%);
+      background-image: -ms-linear-gradient(bottom, darken(@colour,5%) 25%, lighten(@colour,5%) 63%);
+    }
+    
+    &::selection {
+      background:transparent;
+    }
+}
